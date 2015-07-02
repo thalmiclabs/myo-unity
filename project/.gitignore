@@ -1,6 +1,8 @@
 /Temp
 /obj
 /library
+/[Bb]in
+
 *.csproj
 *.unityproj
 *.sln
@@ -9,3 +11,13 @@ project.userprefs
 /Assets/Myo/Scripts/Myo.NET.meta
 /Assets/Plugins
 /Assets/Plugins.meta
+
+MyoUnityIOS/MyoUnityIOS.xcodeproject/*/xcuserdata/
+MyoUnityIOS/MyoUnityIOS.xcodeproject/xcuserdata/
+MyoUnityIOS/MyoUnityIOS/MyoKit.framework
+
+MyoUnityIOS/MyoUnityIOS.xcodeproj/xcuserdata
+MyoUnityIOS/MyoUnityIOS.xcodeproj/project.xcworkspace/
+MyoUnityIOS/Build
+ProjectSettings/
+

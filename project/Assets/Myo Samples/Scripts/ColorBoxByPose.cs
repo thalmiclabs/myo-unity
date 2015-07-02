@@ -46,15 +46,15 @@ public class ColorBoxByPose : MonoBehaviour
 
             // Change material when wave in, wave out or double tap poses are made.
             } else if (thalmicMyo.pose == Pose.WaveIn) {
-                renderer.material = waveInMaterial;
+                GetComponent<Renderer>().material = waveInMaterial;
 
                 ExtendUnlockAndNotifyUserAction (thalmicMyo);
             } else if (thalmicMyo.pose == Pose.WaveOut) {
-                renderer.material = waveOutMaterial;
+                GetComponent<Renderer>().material = waveOutMaterial;
 
                 ExtendUnlockAndNotifyUserAction (thalmicMyo);
             } else if (thalmicMyo.pose == Pose.DoubleTap) {
-                renderer.material = doubleTapMaterial;
+                GetComponent<Renderer>().material = doubleTapMaterial;
 
                 ExtendUnlockAndNotifyUserAction (thalmicMyo);
             }

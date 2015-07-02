@@ -124,7 +124,7 @@ public class MyoIOSManager : MonoBehaviour {
 		}
 	}
 	
-	void didSyncArm(string eventData)
+	void didSyncArmEvent(string eventData)
 	{
 		if (eventData == null || eventData.Length == 0)
 			return;
@@ -145,7 +145,7 @@ public class MyoIOSManager : MonoBehaviour {
 		}
 	}
 	
-	void didUnsyncArm(string eventData)
+	void didUnsyncArmEvent(string eventData)
 	{
 		if (eventData == null || eventData.Length == 0)
 			return;
@@ -167,7 +167,11 @@ public class MyoIOSManager : MonoBehaviour {
 
 	Thalmic.Myo.Vector3 jsonDictToVector3(Dictionary<string, object> dict)
 	{
-		return new Thalmic.Myo.Vector3((float)((double)dict["x"]), (float)((double) dict["y"]),(float)( (double)dict["z"]));
+		if (dict != null && dict["x"] is double && dict["y"] is double && dict["z"] is double)
+		{
+			return new Thalmic.Myo.Vector3((float)((double)dict["x"]), (float)((double) dict["y"]),(float)( (double)dict["z"]));
+		}
+		return new Thalmic.Myo.Vector3 ();
 	}
 
 	Thalmic.Myo.Quaternion jsonDictToQuaternion(Dictionary<string, object> dict)

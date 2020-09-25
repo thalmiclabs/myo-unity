@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B3B27381AF2678E0070FFD3 /* libMyoUnityIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3B272C1AF2678E0070FFD3 /* libMyoUnityIOS.a */; };
+		0B3B27631AF38C8B0070FFD3 /* MyoSDKBinding.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B27601AF38C8B0070FFD3 /* MyoSDKBinding.mm */; };
+		0B3B27641AF38C8B0070FFD3 /* MyoSDKManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B27621AF38C8B0070FFD3 /* MyoSDKManager.mm */; };
+		0B7FF02E1B02A428002D5D65 /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7FF02D1B02A428002D5D65 /* MyoKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0B3B27391AF2678E0070FFD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B3B27241AF2678E0070FFD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B3B272B1AF2678E0070FFD3;
+			remoteInfo = MyoUnityIOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0B3B272A1AF2678E0070FFD3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0B3B272C1AF2678E0070FFD3 /* libMyoUnityIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMyoUnityIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B3B27371AF2678E0070FFD3 /* MyoUnityIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyoUnityIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B3B27601AF38C8B0070FFD3 /* MyoSDKBinding.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyoSDKBinding.mm; sourceTree = "<group>"; };
+		0B3B27611AF38C8B0070FFD3 /* MyoSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyoSDKManager.h; sourceTree = "<group>"; };
+		0B3B27621AF38C8B0070FFD3 /* MyoSDKManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyoSDKManager.mm; sourceTree = "<group>"; };
+		0B7FF02D1B02A428002D5D65 /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MyoKit.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B3B27291AF2678E0070FFD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B7FF02E1B02A428002D5D65 /* MyoKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B3B27341AF2678E0070FFD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B3B27381AF2678E0070FFD3 /* libMyoUnityIOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B3B27231AF2678E0070FFD3 = {
+			isa = PBXGroup;
+			children = (
+				0B3B272E1AF2678E0070FFD3 /* MyoUnityIOS */,
+				0B3B272D1AF2678E0070FFD3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B3B272D1AF2678E0070FFD3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B3B272C1AF2678E0070FFD3 /* libMyoUnityIOS.a */,
+				0B3B27371AF2678E0070FFD3 /* MyoUnityIOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B3B272E1AF2678E0070FFD3 /* MyoUnityIOS */ = {
+			isa = PBXGroup;
+			children = (
+				0BBAADCC1AF3B36000A220E8 /* Frameworks */,
+				0B3B27601AF38C8B0070FFD3 /* MyoSDKBinding.mm */,
+				0B3B27611AF38C8B0070FFD3 /* MyoSDKManager.h */,
+				0B3B27621AF38C8B0070FFD3 /* MyoSDKManager.mm */,
+			);
+			path = MyoUnityIOS;
+			sourceTree = "<group>";
+		};
+		0BBAADCC1AF3B36000A220E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B7FF02D1B02A428002D5D65 /* MyoKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B3B272B1AF2678E0070FFD3 /* MyoUnityIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B3B27401AF2678E0070FFD3 /* Build configuration list for PBXNativeTarget "MyoUnityIOS" */;
+			buildPhases = (
+				0B3B27281AF2678E0070FFD3 /* Sources */,
+				0B3B27291AF2678E0070FFD3 /* Frameworks */,
+				0B3B272A1AF2678E0070FFD3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyoUnityIOS;
+			productName = MyoUnityIOS;
+			productReference = 0B3B272C1AF2678E0070FFD3 /* libMyoUnityIOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		0B3B27361AF2678E0070FFD3 /* MyoUnityIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B3B27431AF2678E0070FFD3 /* Build configuration list for PBXNativeTarget "MyoUnityIOSTests" */;
+			buildPhases = (
+				0B3B27331AF2678E0070FFD3 /* Sources */,
+				0B3B27341AF2678E0070FFD3 /* Frameworks */,
+				0B3B27351AF2678E0070FFD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B3B273A1AF2678E0070FFD3 /* PBXTargetDependency */,
+			);
+			name = MyoUnityIOSTests;
+			productName = MyoUnityIOSTests;
+			productReference = 0B3B27371AF2678E0070FFD3 /* MyoUnityIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B3B27241AF2678E0070FFD3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Thalmic Labs";
+				TargetAttributes = {
+					0B3B272B1AF2678E0070FFD3 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					0B3B27361AF2678E0070FFD3 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 0B3B27271AF2678E0070FFD3 /* Build configuration list for PBXProject "MyoUnityIOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0B3B27231AF2678E0070FFD3;
+			productRefGroup = 0B3B272D1AF2678E0070FFD3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B3B272B1AF2678E0070FFD3 /* MyoUnityIOS */,
+				0B3B27361AF2678E0070FFD3 /* MyoUnityIOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B3B27351AF2678E0070FFD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B3B27281AF2678E0070FFD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B3B27631AF38C8B0070FFD3 /* MyoSDKBinding.mm in Sources */,
+				0B3B27641AF38C8B0070FFD3 /* MyoSDKManager.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B3B27331AF2678E0070FFD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B3B273A1AF2678E0070FFD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B3B272B1AF2678E0070FFD3 /* MyoUnityIOS */;
+			targetProxy = 0B3B27391AF2678E0070FFD3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B3B273E1AF2678E0070FFD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nelson Andre (SZW6U2YVFM)";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0B3B273F1AF2678E0070FFD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nelson Andre (SZW6U2YVFM)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0B3B27411AF2678E0070FFD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyoUnityIOS",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0B3B27421AF2678E0070FFD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyoUnityIOS",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		0B3B27441AF2678E0070FFD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MyoUnityIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0B3B27451AF2678E0070FFD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MyoUnityIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B3B27271AF2678E0070FFD3 /* Build configuration list for PBXProject "MyoUnityIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B3B273E1AF2678E0070FFD3 /* Debug */,
+				0B3B273F1AF2678E0070FFD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B3B27401AF2678E0070FFD3 /* Build configuration list for PBXNativeTarget "MyoUnityIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B3B27411AF2678E0070FFD3 /* Debug */,
+				0B3B27421AF2678E0070FFD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B3B27431AF2678E0070FFD3 /* Build configuration list for PBXNativeTarget "MyoUnityIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B3B27441AF2678E0070FFD3 /* Debug */,
+				0B3B27451AF2678E0070FFD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0B3B27241AF2678E0070FFD3 /* Project object */;
+}

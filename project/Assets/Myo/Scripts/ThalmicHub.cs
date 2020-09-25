@@ -17,6 +17,7 @@
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+using System;
 
 using System.Collections.Generic;
 
@@ -55,11 +56,15 @@ public class ThalmicHub : MonoBehaviour
     // after asking the user to ensure that Myo Connect is running).
     public bool ResetHub() {
         if (_hub != null) {
+
+#if UNITY_EDITOR || !UNITY_IPHONE
+
             _hub.Dispose ();
             _hub = null;
-
+#endif
             foreach (ThalmicMyo myo in _myos) {
                 myo.internalMyo = null;
+				myo.identifier = null;
             }
         }
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -94,6 +99,14 @@ public class ThalmicHub : MonoBehaviour
         // Do not destroy this game object. This will ensure that it remains active even when
         // switching scenes.
         DontDestroyOnLoad(this);
+	
+		//if we are running on iOS initialize the iOSManager to receive updates to myo objects
+		if (Application.platform == RuntimePlatform.IPhonePlayer)
+		{
+			GameObject go = new GameObject("MyoIOSManager");
+			go.AddComponent<MyoIOSManager>();
+			go.transform.parent = this.transform;
+		}
 
         for (int i = 0; i < transform.childCount; ++i) {
             Transform child = transform.GetChild (i);
@@ -132,27 +145,28 @@ public class ThalmicHub : MonoBehaviour
     }
 
     private bool createHub () {
+
+		#if UNITY_EDITOR || !UNITY_IPHONE
         try {
             _hub = new Thalmic.Myo.Hub (applicationIdentifier, hub_MyoPaired);
 
             _hub.SetLockingPolicy (lockingPolicy);
-        } catch (System.Exception) {
-            Debug.Log ("ThalmicHub failed to initialize.");
+        } catch (System.Exception e) {
+            Debug.Log ("ThalmicHub failed to initialize." + e.ToString());
             return false;
         }
+		#endif
         return true;
     }
 
     void OnApplicationQuit ()
     {
         if (_hub != null) {
+#if UNITY_EDITOR || !UNITY_IOS
             _hub.Dispose ();
             _hub = null;
+#endif
         }
-    }
-
-    void Update ()
-    {
     }
 
     void hub_MyoPaired (object sender, Thalmic.Myo.MyoEventArgs e)
@@ -169,5 +183,17 @@ public class ThalmicHub : MonoBehaviour
 
     private Thalmic.Myo.Hub _hub = null;
 
-    private List<ThalmicMyo> _myos = new List<ThalmicMyo>();
+    public List<ThalmicMyo> _myos = new List<ThalmicMyo>();
+	
+	//Events
+	public static Action <ThalmicMyo, Vector3> DidUpdateAccelerometerData;
+	public static Action <ThalmicMyo, Quaternion> DidUpdateOrientationData;
+	public static Action <ThalmicMyo, Thalmic.Myo.Pose> DidReceivePoseChange;
+	public static Action <ThalmicMyo, float[]> DidReceiveEmgData;
+	public static Action <ThalmicMyo> DidConnectDevice;
+	public static Action <ThalmicMyo> DidDisconnectDevice;
+	public static Action <ThalmicMyo> DidUnlockDevice;
+	public static Action <ThalmicMyo> DidLockDevice;
+	public static Action <ThalmicMyo> DidSyncArm;
+	public static Action <ThalmicMyo> DidUnsyncArm;
 }

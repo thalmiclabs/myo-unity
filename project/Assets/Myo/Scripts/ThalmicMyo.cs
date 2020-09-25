@@ -20,11 +20,16 @@ using XDirection = Thalmic.Myo.XDirection;
 using VibrationType = Thalmic.Myo.VibrationType;
 using Pose = Thalmic.Myo.Pose;
 using UnlockType = Thalmic.Myo.UnlockType;
-
+using EmgState = Thalmic.Myo.EmgState;
 // Represents a Myo armband. Myo's orientation is made available through transform.localRotation, and other properties
 // like the current pose are provided explicitly below. All spatial data about Myo is provided following Unity
 // coordinate system conventions (the y axis is up, the z axis is forward, and the coordinate system is left-handed).
+using System.Collections.Generic;
+
+
 public class ThalmicMyo : MonoBehaviour {
+
+	public string identifier;
 
     // True if and only if Myo has detected that it is on an arm.
     public bool armSynced;
@@ -52,33 +57,72 @@ public class ThalmicMyo : MonoBehaviour {
     // following Unity coordinate system conventions.
     public Vector3 gyroscope;
 
+	// Myo's current emg reading.  Key represents the sensor index
+	public Dictionary<int, sbyte> emg;
+
     // True if and only if this Myo armband has paired successfully, at which point it will provide data and a
     // connection with it will be maintained when possible.
     public bool isPaired {
-        get { return _myo != null; }
+        get { return _myo != null || (identifier !=null && identifier.Length > 0); }
     }
 
     // Vibrate the Myo with the provided type of vibration, e.g. VibrationType.Short or VibrationType.Medium.
     public void Vibrate (VibrationType type) {
+
+#if UNITY_EDITOR || !UNITY_IOS
+
         _myo.Vibrate (type);
+#else
+		Thalmic.MyoBindings.myo_VibrateWithLength(identifier, (int) type);
+#endif
     }
+
+	public void SetEmgState(EmgState emgState)
+	{
+
+#if UNITY_EDITOR
+		_myo.SetEmgState (emgState);
+#elif UNITY_IOS
+		Thalmic.MyoBindings.myo_SetStreamEmg(identifier, (int)emgState);
+#endif
+	}
 
     // Cause the Myo to unlock with the provided type of unlock. e.g. UnlockType.Timed or UnlockType.Hold.
     public void Unlock (UnlockType type) {
-        _myo.Unlock (type);
+
+		#if UNITY_EDITOR || !UNITY_IOS
+		_myo.Unlock (type);
+		#else
+		Thalmic.MyoBindings.myo_UnlockWithType(identifier, (int) type);
+		#endif
     }
 
     // Cause the Myo to re-lock immediately.
     public void Lock () {
-        _myo.Lock ();
+
+		#if UNITY_EDITOR || !UNITY_IOS
+		_myo.Lock ();
+		#else
+		Thalmic.MyoBindings.myo_Lock(identifier);
+		#endif
     }
 
     /// Notify the Myo that a user action was recognized.
     public void NotifyUserAction () {
-        _myo.NotifyUserAction ();
+
+		#if UNITY_EDITOR || !UNITY_IOS
+		
+		_myo.NotifyUserAction ();
+		
+		#else
+		Thalmic.MyoBindings.myo_IndicateUserAction(identifier);
+		#endif
     }
 
     void Start() {
+
+		identifier = "";
+
     }
 
     void Update() {
@@ -147,10 +191,16 @@ public class ThalmicMyo : MonoBehaviour {
     }
 
     void myo_OnLock(object sender, Thalmic.Myo.MyoEventArgs e) {
-        lock (_lock) {
-            _myoUnlocked = false;
-        }
-    }
+		lock (_lock) {
+			_myoUnlocked = false;
+		}
+	}
+
+	void myo_OnEmg(object sender, Thalmic.Myo.EmgEventArgs e){
+		lock (_lock) {
+			emg = e.Emg;
+		}
+	}
 
     public Thalmic.Myo.Myo internalMyo {
         get { return _myo; }
@@ -164,6 +214,7 @@ public class ThalmicMyo : MonoBehaviour {
                 _myo.PoseChange -= myo_OnPoseChange;
                 _myo.Unlocked -= myo_OnUnlock;
                 _myo.Locked -= myo_OnLock;
+				_myo.Emg -= myo_OnEmg;
             }
             _myo = value;
             if (value != null) {
@@ -175,20 +226,20 @@ public class ThalmicMyo : MonoBehaviour {
                 value.PoseChange += myo_OnPoseChange;
                 value.Unlocked += myo_OnUnlock;
                 value.Locked += myo_OnLock;
+				value.Emg += myo_OnEmg;
             }
         }
     }
 
     private Object _lock = new Object();
 
-    private bool _myoArmSynced = false;
-    private Arm _myoArm = Arm.Unknown;
-    private XDirection _myoXDirection = XDirection.Unknown;
-    private Thalmic.Myo.Quaternion _myoQuaternion = null;
-    private Thalmic.Myo.Vector3 _myoAccelerometer = null;
-    private Thalmic.Myo.Vector3 _myoGyroscope = null;
-    private Pose _myoPose = Pose.Unknown;
-    private bool _myoUnlocked = false;
-
+    public bool _myoArmSynced = false;
+	public Arm _myoArm = Arm.Unknown;
+	public XDirection _myoXDirection = XDirection.Unknown;
+	public Thalmic.Myo.Quaternion _myoQuaternion = null;
+	public Thalmic.Myo.Vector3 _myoAccelerometer = null;
+	public Thalmic.Myo.Vector3 _myoGyroscope = null;
+	public Pose _myoPose = Pose.Unknown;
+	public bool _myoUnlocked = false;
     private Thalmic.Myo.Myo _myo;
 }
